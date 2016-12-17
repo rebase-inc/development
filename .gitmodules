@@ -4,3 +4,6 @@
 [submodule "private-crawler"]
 	path = private-crawler
 	url = git@github.com:rebase-inc/private-crawler.git
+[submodule "skillgraph"]
+	path = skillgraph
+	url = git@github.com:rebase-inc/skillgraph.git

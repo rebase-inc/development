@@ -1,14 +1,27 @@
 version: '2'
-volumes:
-    log: {}
-    sql: {}
 
 services:
   api:
-    extends:
-      file: common.yml
-      service: api
-    ports:
-      - "5000:5000"
-    volumes:
-      - ../api:/api
+    container_name: api
+    build: 
+      context: ../api
+      args:
+        PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
+        PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
+        PYPI_SERVER_PORT: '${PYPI_SERVER_PORT}'
+    expose:
+      - "5000"
+    environment:
+      S3_BUCKET: '${S3_BUCKET}'
+      SECRET_KEY: '${SECRET_KEY}'
+      GITHUB_APP_CLIENT_ID: '${GITHUB_APP_CLIENT_ID}'
+      GITHUB_APP_CLIENT_SECRET: '${GITHUB_APP_CLIENT_SECRET}'
+      PUBLIC_APP_URL: 'http://dev:3000'
+      FLASK_LOGIN_SESSION_PROTECTION: "basic"
+      REDIS_HOST: 'redis'
+      RSYSLOG_HOST: 'logserver'
+      RSYSLOG_PORT: 514
+      DATABASE_HOST: 'database'
+      API_URL_PREFIX: '/api/v1/'
+      BACKEND_AWS_ACCESS_KEY_ID: '${BACKEND_AWS_ACCESS_KEY_ID}'
+      BACKEND_AWS_SECRET_ACCESS_KEY: '${BACKEND_AWS_SECRET_ACCESS_KEY}'
