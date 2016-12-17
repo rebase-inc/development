@@ -3,6 +3,7 @@ volumes:
     log: {}
     sql: {}
 
+# This file should only be extensions of per-service docker-compose files ( no parameters )
 services:
   api:
     extends:
