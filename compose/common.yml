@@ -28,3 +28,7 @@ services:
     extends:
       file: logserver.yml
       service: logserver
+  proxy:
+    extends:
+      file: proxy.yml
+      service: proxy

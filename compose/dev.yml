@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  proxy:
+    volumes:
+      - ../services/proxy/conf:/etc/nginx/conf.d

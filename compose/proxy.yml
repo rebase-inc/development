@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  proxy:
+    container_name: proxy
+    build: 
+      context: ../services/proxy
+    image: proxy 
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"

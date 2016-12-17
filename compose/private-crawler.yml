@@ -8,7 +8,7 @@ services:
     hostname: private_crawler
     image: private_crawler
     build:
-      context: ../private-crawler
+      context: ../services/private-crawler
       args:
         PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
         PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'

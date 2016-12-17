@@ -10,3 +10,6 @@
 [submodule "logserver"]
 	path = services/logserver
 	url = git@github.com:rebase-inc/logserver.git
+[submodule "services/proxy"]
+	path = services/proxy
+	url = git@github.com:rebase-inc/proxy.git

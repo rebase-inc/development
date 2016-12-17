@@ -4,7 +4,7 @@ services:
   api:
     container_name: api
     build: 
-      context: ../api
+      context: ../services/api
       args:
         PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
         PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
