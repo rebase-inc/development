@@ -26,3 +26,7 @@
 	path = services/python-2-parser
 	url = git@github.com:rebase-inc/python-2-parser
 	branch = master
+[submodule "services/javascript-parser"]
+	path = services/javascript-parser
+	url = git@github.com:rebase-inc/javascript-parser.git
+	branch = master

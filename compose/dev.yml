@@ -12,3 +12,6 @@ services:
   python_parser:
     ports:
       - "25252:25252"
+  javascript_parser:
+    ports:
+      - "7777:7777"
