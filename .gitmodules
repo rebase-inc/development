@@ -1,3 +1,6 @@
 [submodule "api"]
 	path = api
 	url = git@github.com:rebase-inc/api.git
+[submodule "private-crawler"]
+	path = private-crawler
+	url = git@github.com:rebase-inc/private-crawler.git

@@ -1,0 +1,11 @@
+version: '2'
+volumes:
+    log: {}
+
+services:
+  private_crawler:
+    extends:
+      file: common.yml
+      service: private_crawler
+    environment:
+      LOG_LEVEL: 'DEBUG'
