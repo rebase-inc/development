@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  redis:
+    container_name: redis
+    hostname: redis
+    image: redis
+    restart: always

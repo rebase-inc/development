@@ -17,3 +17,7 @@ services:
     extends:
       file: skillgraph.yml
       service: skillgraph
+  redis:
+    extends:
+      file: redis.yml
+      service: redis

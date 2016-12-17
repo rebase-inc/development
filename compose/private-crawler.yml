@@ -1,0 +1,22 @@
+version: '2'
+volumes:
+    log: {}
+
+services:
+  private_crawler:
+    container_name: private_crawler
+    hostname: private_crawler
+    image: private_crawler
+    build:
+      context: ../private-crawler
+      args:
+        PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
+        PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
+        PYPI_SERVER_PORT: '${PYPI_SERVER_PORT}'
+    environment:
+      CRAWLER_USERNAME: '${CRAWLER_USERNAME}'
+      CRAWLER_PASSWORD: '${CRAWLER_PASSWORD}'
+      REPOS_VOLUME_SIZE_IN_MB: 500
+      CLONE_SIZE_SAFETY_FACTOR: 2
+    tmpfs:
+     - /repos:rw,noexec,size=500m
