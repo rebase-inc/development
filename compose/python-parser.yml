@@ -5,7 +5,7 @@ services:
     container_name: python_parser
     hostname: python_parser
     build:
-      context: ../services/python_parser
+      context: ../services/python-parser
       args:
         PYPI_SERVER_SCHEME:
         PYPI_SERVER_HOST:
