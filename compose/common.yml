@@ -24,3 +24,7 @@ services:
     extends:
       file: redis.yml
       service: redis
+  logserver:
+    extends:
+      file: logserver.yml
+      service: logserver

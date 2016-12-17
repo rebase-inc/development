@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  logserver:
+    container_name: logserver
+    build: 
+      context: ../logserver
+    image: logserver 
+    expose:
+      - "514"

@@ -7,3 +7,6 @@
 [submodule "skillgraph"]
 	path = skillgraph
 	url = git@github.com:rebase-inc/skillgraph.git
+[submodule "logserver"]
+	path = logserver
+	url = git@github.com:rebase-inc/logserver.git
