@@ -1,12 +1,12 @@
 [submodule "api"]
-	path = api
+	path = services/api
 	url = git@github.com:rebase-inc/api.git
 [submodule "private-crawler"]
-	path = private-crawler
+	path = services/private-crawler
 	url = git@github.com:rebase-inc/private-crawler.git
 [submodule "skillgraph"]
-	path = skillgraph
+	path = services/skillgraph
 	url = git@github.com:rebase-inc/skillgraph.git
 [submodule "logserver"]
-	path = logserver
+	path = services/logserver
 	url = git@github.com:rebase-inc/logserver.git
