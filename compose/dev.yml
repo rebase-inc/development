@@ -1,6 +1,14 @@
 version: '2'
 
 services:
-  proxy:
+  api:
     volumes:
-      - ../services/proxy/conf:/etc/nginx/conf.d
+      - ../services/api:/api
+  private_crawler:
+    environment:
+      LOG_LEVEL: 'DEBUG'
+    volumes:
+      - ../services/private-crawler/scanner:/pylibs/scanner
+  python_parser:
+    ports:
+      - "25252:25252"

@@ -5,7 +5,7 @@ volumes:
 
 services:
   database:
-    image: postgres
+    image: postgres:alpine
     container_name: database
     environment:
       PGDATA: "/var/lib/postgresql/data/rebase"

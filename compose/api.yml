@@ -3,7 +3,7 @@ version: '2'
 services:
   api:
     container_name: api
-    build: 
+    build:
       context: ../services/api
       args:
         PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
@@ -17,7 +17,7 @@ services:
       GITHUB_APP_CLIENT_ID: '${GITHUB_APP_CLIENT_ID}'
       GITHUB_APP_CLIENT_SECRET: '${GITHUB_APP_CLIENT_SECRET}'
       PUBLIC_APP_URL: 'http://dev:3000'
-      FLASK_LOGIN_SESSION_PROTECTION: "basic"
+      FLASK_LOGIN_SESSION_PROTECTION: 'basic'
       REDIS_HOST: 'redis'
       RSYSLOG_HOST: 'logserver'
       RSYSLOG_PORT: 514

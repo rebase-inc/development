@@ -32,3 +32,7 @@ services:
     extends:
       file: proxy.yml
       service: proxy
+  python_parser:
+    extends:
+      file: python-parser.yml
+      service: python_parser

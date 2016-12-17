@@ -1,0 +1,28 @@
+[submodule "services/api"]
+	path = services/api
+	url = git@github.com:rebase-inc/api.git
+	branch = master
+[submodule "services/logserver"]
+	path = services/logserver
+	url = git@github.com:rebase-inc/logserver.git
+	branch = master
+[submodule "services/private-crawler"]
+	path = services/private-crawler
+	url = git@github.com:rebase-inc/private-crawler.git
+	branch = master
+[submodule "services/proxy"]
+	path = services/proxy
+	url = git@github.com:rebase-inc/proxy.git
+	branch = master
+[submodule "services/skillgraph"]
+	path = services/skillgraph
+	url = git@github.com:rebase-inc/skillgraph.git
+	branch = master
+[submodule "services/python-parser"]
+	path = services/python-parser
+	url = git@github.com:rebase-inc/python-parser.git
+	branch = master
+[submodule "services/python-2-parser"]
+	path = services/python-2-parser
+	url = git@github.com:rebase-inc/python-2-parser
+	branch = master
