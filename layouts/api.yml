@@ -1,0 +1,14 @@
+version: '2'
+volumes:
+    log: {}
+    sql: {}
+
+services:
+  api:
+    extends:
+      file: common.yml
+      service: api
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../api:/api
