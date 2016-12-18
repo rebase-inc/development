@@ -45,3 +45,7 @@ services:
     extends:
       file: javascript-parser.yml
       service: javascript_parser
+  population_analyzer:
+    extends:
+      file: population-analyzer.yml
+      service: population_analyzer

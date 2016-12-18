@@ -9,6 +9,11 @@ services:
       LOG_LEVEL: 'DEBUG'
     volumes:
       - ../services/private-crawler/scanner:/pylibs/scanner
+  population_analyzer:
+    environment:
+      LOG_LEVEL: 'DEBUG'
+    volumes:
+      - ../services/population-analyzer/analyzer:/pylibs/analyzer
   python_parser:
     ports:
       - "25252:25252"

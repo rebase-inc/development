@@ -1,0 +1,19 @@
+version: '2'
+volumes:
+    log: {}
+
+services:
+  population_analyzer:
+    container_name: population_analyzer
+    hostname: population_analyzer
+    image: population_analyzer
+    build:
+      context: ../services/population-analyzer
+      args:
+        PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
+        PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
+        PYPI_SERVER_PORT: '${PYPI_SERVER_PORT}'
+    environment:
+      SKILL_DATA_S3_BUCKET: '${SKILL_DATA_S3_BUCKET}'
+      BACKEND_AWS_ACCESS_KEY_ID: '${BACKEND_AWS_ACCESS_KEY_ID}'
+      BACKEND_AWS_SECRET_ACCESS_KEY: '${BACKEND_AWS_SECRET_ACCESS_KEY}'
