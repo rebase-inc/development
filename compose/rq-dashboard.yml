@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+  rq_dashboard:
+    container_name: rq_dashboard
+    hostname: rq_dashboard
+    build:
+      context: ../services/rq-dashboard
+    image: rq_dashboard

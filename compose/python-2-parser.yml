@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  python_2_parser:
+    container_name: python_2_parser
+    hostname: python_2_parser
+    build:
+      context: ../services/python-2-parser
+      args:
+        PYPI_SERVER_SCHEME:
+        PYPI_SERVER_HOST:
+        PYPI_SERVER_PORT:
+    image: python_2_parser
+    expose:
+      - "25253"

@@ -12,6 +12,15 @@ services:
   python_parser:
     ports:
       - "25252:25252"
+  python_2_parser:
+    ports:
+      - "25253:25253"
   javascript_parser:
     ports:
       - "7777:7777"
+  rq_dashboard:
+    extends:
+      file: rq-dashboard.yml
+      service: rq_dashboard
+    ports:
+      - "4444:4444"

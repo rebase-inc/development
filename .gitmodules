@@ -30,3 +30,11 @@
 	path = services/javascript-parser
 	url = git@github.com:rebase-inc/javascript-parser.git
 	branch = master
+[submodule "services/rq-dashboard"]
+	path = services/rq-dashboard
+	url = git@github.com:rebase-inc/rq-dashboard.git
+	branch = master
+[submodule "services/population-analyzer"]
+	path = services/population-analyzer
+	url = git@github.com:rebase-inc/population-analyzer.git
+	branch = master

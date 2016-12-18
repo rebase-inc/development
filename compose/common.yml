@@ -37,6 +37,10 @@ services:
     extends:
       file: python-parser.yml
       service: python_parser
+  python_2_parser:
+    extends:
+      file: python-2-parser.yml
+      service: python_2_parser
   javascript_parser:
     extends:
       file: javascript-parser.yml
