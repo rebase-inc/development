@@ -7,3 +7,5 @@ services:
     image: pypi_server
     expose:
       - "8080"
+    ports:
+      - "8080:8080"

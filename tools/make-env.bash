@@ -37,15 +37,15 @@ if [[ $make_file =~ ^([yY][eE][sS]|[yY])$ ]]
 then
   env_file_location=$(prompt "Location for file?" "~/.rebase.env")
   env_file_location="${env_file_location/#\~/$HOME}"
-  echo "PYPI_SERVER_HOST=$PYPI_SERVER_HOST" > $env_file_location
-  echo "PYPI_SERVER_SCHEME=$PYPI_SERVER_SCHEME" >> $env_file_location
-  echo "PYPI_SERVER_PORT=$PYPI_SERVER_PORT" >> $env_file_location
-  echo "GITHUB_APP_CLIENT_ID=$GITHUB_APP_CLIENT_ID" >> $env_file_location
-  echo "GITHUB_APP_CLIENT_SECRET=$GITHUB_APP_CLIENT_SECRET" >> $env_file_location
-  echo "GITHUB_CRAWLER_USERNAME=$GITHUB_CRAWLER_USERNAME" >> $env_file_location
-  echo "GITHUB_CRAWLER_PASSWORD=$GITHUB_CRAWLER_PASSWORD" >> $env_file_location
-  echo "SKILL_DATA_S3_BUCKET=$SKILL_DATA_S3_BUCKET" >> $env_file_location
-  echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID" >> $env_file_location
-  echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY" >> $env_file_location
-  echo "FLASK_SECRET_KEY=$FLASK_SECRET_KEY" >> $env_file_location
+  echo "export PYPI_SERVER_HOST=\"$PYPI_SERVER_HOST\"" > $env_file_location
+  echo "export PYPI_SERVER_SCHEME=\"$PYPI_SERVER_SCHEME\"" >> $env_file_location
+  echo "export PYPI_SERVER_PORT=\"$PYPI_SERVER_PORT\"" >> $env_file_location
+  echo "export GITHUB_APP_CLIENT_ID=\"$GITHUB_APP_CLIENT_ID\"" >> $env_file_location
+  echo "export GITHUB_APP_CLIENT_SECRET=\"$GITHUB_APP_CLIENT_SECRET\"" >> $env_file_location
+  echo "export GITHUB_CRAWLER_USERNAME=\"$GITHUB_CRAWLER_USERNAME\"" >> $env_file_location
+  echo "export GITHUB_CRAWLER_PASSWORD=\"$GITHUB_CRAWLER_PASSWORD\"" >> $env_file_location
+  echo "export SKILL_DATA_S3_BUCKET=\"$SKILL_DATA_S3_BUCKET\"" >> $env_file_location
+  echo "export AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"" >> $env_file_location
+  echo "export AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> $env_file_location
+  echo "export FLASK_SECRET_KEY=\"$FLASK_SECRET_KEY\"" >> $env_file_location
 fi
