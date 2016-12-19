@@ -49,3 +49,11 @@ services:
     extends:
       file: population-analyzer.yml
       service: population_analyzer
+  python_impact:
+    extends:
+      file: python-impact.yml
+      service: python_impact
+  javascript_impact:
+    extends:
+      file: javascript-impact.yml
+      service: javascript_impact

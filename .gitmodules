@@ -42,3 +42,11 @@
 	path = services/pypi-server
 	url = git@github.com:rebase-inc/pypi-server.git
 	branch = master
+[submodule "services/python-impact"]
+	path = services/python-impact
+	url = git@github.com:rebase-inc/python-impact.git
+	branch = master
+[submodule "services/javascript-impact"]
+	path = services/javascript-impact
+	url = git@github.com:rebase-inc/javascript-impact.git
+	branch = master

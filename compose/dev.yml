@@ -13,7 +13,7 @@ services:
     environment:
       LOG_LEVEL: 'DEBUG'
     volumes:
-      - ../services/population-analyzer/analyzer:/pylibs/analyzer
+      - ../services/population-analyzer/leaderboard:/pylibs/leaderboard
   python_parser:
     ports:
       - "25252:25252"
@@ -29,3 +29,9 @@ services:
       service: rq_dashboard
     ports:
       - "4444:4444"
+  python_impact:
+    ports:
+      - "25000:25000"
+  javascript_impact:
+    ports:
+      - "9999:9999"
