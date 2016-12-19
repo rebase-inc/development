@@ -38,3 +38,7 @@
 	path = services/population-analyzer
 	url = git@github.com:rebase-inc/population-analyzer.git
 	branch = master
+[submodule "services/pypi-server"]
+	path = services/pypi-server
+	url = git@github.com:rebase-inc/pypi-server.git
+	branch = master
