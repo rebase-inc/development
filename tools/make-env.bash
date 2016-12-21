@@ -25,7 +25,7 @@ export GITHUB_APP_CLIENT_SECRET=${GITHUB_APP_CLIENT_SECRET:-$(prompt 'GitHub App
 export GITHUB_CRAWLER_USERNAME=${GITHUB_CRAWLER_USERNAME:-$(prompt 'GitHub Crawler Username ( create a new GitHub account for this )')}
 export GITHUB_CRAWLER_PASSWORD=${GITHUB_CRAWLER_PASSWORD:-$(prompt 'GitHub Crawler Password ( create a new GitHub account for this )')}
 
-export SKILL_DATA_S3_BUCKET=${SKILL_DATA_S3_BUCKET:-$(prompt 'S3 Bucket ( for storing population skill data )')}
+export S3_KNOWLEDGE_BUCKET=${S3_KNOWLEDGE_BUCKET:-$(prompt 'S3 Bucket ( for storing population skill data )')}
 export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-$(prompt 'AWS Access Key ID ( for storing population skill data )')}
 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-$(prompt 'AWS Secret Access Key ( for storing population skill data )')}
 
@@ -44,7 +44,7 @@ then
   echo "export GITHUB_APP_CLIENT_SECRET=\"$GITHUB_APP_CLIENT_SECRET\"" >> $env_file_location
   echo "export GITHUB_CRAWLER_USERNAME=\"$GITHUB_CRAWLER_USERNAME\"" >> $env_file_location
   echo "export GITHUB_CRAWLER_PASSWORD=\"$GITHUB_CRAWLER_PASSWORD\"" >> $env_file_location
-  echo "export SKILL_DATA_S3_BUCKET=\"$SKILL_DATA_S3_BUCKET\"" >> $env_file_location
+  echo "export S3_KNOWLEDGE_BUCKET=\"$S3_KNOWLEDGE_BUCKET\"" >> $env_file_location
   echo "export AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"" >> $env_file_location
   echo "export AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> $env_file_location
   echo "export FLASK_SECRET_KEY=\"$FLASK_SECRET_KEY\"" >> $env_file_location
