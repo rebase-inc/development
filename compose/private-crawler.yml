@@ -16,12 +16,13 @@ services:
     environment:
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
       GIHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
-      S3_KNOWLEDGE_KEYSPACE: 'users/{language}/{module}/'
-      S3_KNOWLEDGE_BUCKET: '${S3_KNOWLEDGE_BUCKET}'
-      SMALL_REPO_SAFETY_FACTOR: 2
-      SMALL_REPO_DIR_SIZE: 524288000 # 500M
-      SMALL_REPO_DIR: '/repos'
-      LARGE_REPO_DIR: '/big_repos'
+      S3_BUCKET: '${S3_KNOWLEDGE_BUCKET}'
+      S3_LEADERBOARD_PREFIX: 'leaderboard'
+      S3_USER_PREFIX: 'users'
+      TMPFS_DRIVE_MAX_WRITE: 262144000 # 250M
+      TMPFS_DRIVE: '/repos'
+      LARGE_DRIVE: '/large_repos'
+      AWS_REGION: 'us-east-1'
       AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'
       AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
     tmpfs:
