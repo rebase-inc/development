@@ -28,6 +28,7 @@ export GITHUB_CRAWLER_PASSWORD=${GITHUB_CRAWLER_PASSWORD:-$(prompt 'GitHub Crawl
 export S3_KNOWLEDGE_BUCKET=${S3_KNOWLEDGE_BUCKET:-$(prompt 'S3 Bucket ( for storing population skill data )')}
 export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-$(prompt 'AWS Access Key ID ( for storing population skill data )')}
 export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-$(prompt 'AWS Secret Access Key ( for storing population skill data )')}
+export AWS_REGION=${AWS_REGION:-$(prompt 'AWS Region' 'us-east-1')}
 
 export FLASK_SECRET_KEY=${FLASK_SECRET_KEY:-$(prompt 'Flask Secret Key ( if not in production, this can be any string )' 'SOME_FAKE_KEY')}
 
@@ -37,7 +38,8 @@ if [[ $make_file =~ ^([yY][eE][sS]|[yY])$ ]]
 then
   env_file_location=$(prompt "Location for file?" "~/.rebase.env")
   env_file_location="${env_file_location/#\~/$HOME}"
-  echo "export PYPI_SERVER_HOST=\"$PYPI_SERVER_HOST\"" > $env_file_location
+  echo "export DOCKERHOST=\"$DOCKERHOST\"" > $env_file_location
+  echo "export PYPI_SERVER_HOST=\"$PYPI_SERVER_HOST\"" >> $env_file_location
   echo "export PYPI_SERVER_SCHEME=\"$PYPI_SERVER_SCHEME\"" >> $env_file_location
   echo "export PYPI_SERVER_PORT=\"$PYPI_SERVER_PORT\"" >> $env_file_location
   echo "export GITHUB_APP_CLIENT_ID=\"$GITHUB_APP_CLIENT_ID\"" >> $env_file_location
@@ -45,6 +47,7 @@ then
   echo "export GITHUB_CRAWLER_USERNAME=\"$GITHUB_CRAWLER_USERNAME\"" >> $env_file_location
   echo "export GITHUB_CRAWLER_PASSWORD=\"$GITHUB_CRAWLER_PASSWORD\"" >> $env_file_location
   echo "export S3_KNOWLEDGE_BUCKET=\"$S3_KNOWLEDGE_BUCKET\"" >> $env_file_location
+  echo "export AWS_REGION=\"$AWS_REGION\"" >> $env_file_location
   echo "export AWS_ACCESS_KEY_ID=\"$AWS_ACCESS_KEY_ID\"" >> $env_file_location
   echo "export AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> $env_file_location
   echo "export FLASK_SECRET_KEY=\"$FLASK_SECRET_KEY\"" >> $env_file_location

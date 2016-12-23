@@ -22,7 +22,7 @@ services:
       TMPFS_DRIVE_MAX_WRITE: 262144000 # 250M
       TMPFS_DRIVE: '/repos'
       LARGE_DRIVE: '/large_repos'
-      AWS_REGION: 'us-east-1'
+      AWS_REGION: '${AWS_REGION}'
       AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'
       AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
     tmpfs:

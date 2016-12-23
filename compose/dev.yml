@@ -45,3 +45,6 @@ services:
       LOG_LEVEL: 'WARNING'
     ports:
       - "9999:9999"
+  database:
+    ports:
+      - "5432:5432"
