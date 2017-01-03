@@ -12,10 +12,8 @@ prompt() {
   fi
 }
 
-export VM_NAME=$(docker-machine ls --quiet)
-export DOCKERHOST=$(docker-machine ip $VM_NAME)
-
-export PYPI_SERVER_HOST=${PYPI_SERVER_HOST:-$(prompt "PyPI server host ( for local PyPI server )" "$DOCKERHOST")}
+export LOCALHOST_ALIAS=$(ifconfig lo0 | awk '$1 == "inet" {print $2}' | tail -1)
+export PYPI_SERVER_HOST=${PYPI_SERVER_HOST:-$(prompt "PyPI server host ( for local PyPI server )" "$LOCALHOST_ALIAS")}
 export PYPI_SERVER_SCHEME=${PYPI_SERVER_SCHEME:-$(prompt "PyPI server scheme ( for local PyPI server)" "http://")}
 export PYPI_SERVER_PORT=${PYPI_SERVER_PORT:-$(prompt "PyPI server scheme ( for local PyPI server)" "8080")}
 
@@ -38,9 +36,8 @@ if [[ $make_file =~ ^([yY][eE][sS]|[yY])$ ]]
 then
   env_file_location=$(prompt "Location for file?" "~/.rebase.env")
   env_file_location="${env_file_location/#\~/$HOME}"
-  echo "export DOCKERHOST=\"$DOCKERHOST\"" > $env_file_location
+  echo "export PYPI_SERVER_SCHEME=\"$PYPI_SERVER_SCHEME\"" > $env_file_location
   echo "export PYPI_SERVER_HOST=\"$PYPI_SERVER_HOST\"" >> $env_file_location
-  echo "export PYPI_SERVER_SCHEME=\"$PYPI_SERVER_SCHEME\"" >> $env_file_location
   echo "export PYPI_SERVER_PORT=\"$PYPI_SERVER_PORT\"" >> $env_file_location
   echo "export GITHUB_APP_CLIENT_ID=\"$GITHUB_APP_CLIENT_ID\"" >> $env_file_location
   echo "export GITHUB_APP_CLIENT_SECRET=\"$GITHUB_APP_CLIENT_SECRET\"" >> $env_file_location
