@@ -3,20 +3,30 @@ volumes:
     log: {}
     sql: {}
 
-# This file should only be extensions of per-service docker-compose files ( no parameters )
+# This file should only be extensions of per-service docker-compose files ( no parameters aside from depends_on )
 services:
   api:
     extends:
-      file: api.yml 
+      file: api.yml
       service: api
+    depends_on:
+      - database
   database:
     extends:
       file: database.yml
       service: database
   private_crawler:
     extends:
-      file: private-crawler.yml 
+      file: private-crawler.yml
       service: private_crawler
+    depends_on:
+      - redis
+  population_analyzer:
+    extends:
+      file: population-analyzer.yml
+      service: population_analyzer
+    depends_on:
+      - redis
   skillgraph:
     extends:
       file: skillgraph.yml
@@ -45,10 +55,6 @@ services:
     extends:
       file: javascript-parser.yml
       service: javascript_parser
-  population_analyzer:
-    extends:
-      file: population-analyzer.yml
-      service: population_analyzer
   python_impact:
     extends:
       file: python-impact.yml

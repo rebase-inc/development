@@ -3,6 +3,7 @@ version: '2'
 services:
   logserver:
     container_name: logserver
+    hostname: logserver
     build: 
       context: ../services/logserver
     image: logserver 

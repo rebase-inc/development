@@ -1,0 +1,56 @@
+version: '2'
+volumes:
+  SYNC_api:
+    external: true
+  SYNC_pypi_server:
+    external: true
+  SYNC_private_crawler:
+    external: true
+  SYNC_population_analyzer:
+    external: true
+  SYNC_javascript_impact:
+    external: true
+  SYNC_python_impact:
+    external: true
+
+services:
+  api:
+    volumes:
+      - SYNC_api:/usr/app/src
+      - SYNC_pypi_server:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  private_crawler:
+    volumes:
+      - SYNC_private_crawler:/usr/app/src
+      - SYNC_pypi_server:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  population_analyzer:
+    volumes:
+      - SYNC_population_analyzer:/usr/app/src
+      - SYNC_pypi_server:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  python_parser:
+    volumes:
+      - SYNC_pypi_server:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  python_2_parser:
+    volumes:
+      - SYNC_pypi_server:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  python_impact:
+    volumes:
+      - SYNC_pypi_server:/usr/app/site-packages
+      - SYNC_python_impact:/usr/app/src
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  javascript_impact:
+    volumes:
+      - SYNC_pypi_server:/usr/app/site-packages
+      - SYNC_javascript_impact:/usr/app/src
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'

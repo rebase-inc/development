@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  api:
+    volumes:
+      - ../services/api:/usr/app/src
+  private_crawler:
+    volumes:
+      - ../services/private-crawler:/usr/app/src
+  population_analyzer:
+    volumes:
+      - ../services/population-analyzer:/usr/app/src
+  python_impact:
+    volumes:
+      - ../services/python-impact:/usr/app/src
+  javascript_impact:
+    volumes:
+      - ../services/javascript-impact:/usr/app/src

@@ -1,8 +1,11 @@
 version: '2'
+volumes:
+    log: {}
 
 services:
   api:
     container_name: api
+    hostname: api
     build:
       context: ../services/api
       args:
@@ -16,7 +19,7 @@ services:
       FLASK_LOGIN_SESSION_PROTECTION: 'basic'
       GITHUB_APP_CLIENT_ID: '${GITHUB_APP_CLIENT_ID}'
       GITHUB_APP_CLIENT_SECRET: '${GITHUB_APP_CLIENT_SECRET}'
-      PUBLIC_APP_URL: 'http://dev:3000'
+      PUBLIC_APP_URL: 'http://localhost:3000'
       REDIS_HOST: 'redis'
       RSYSLOG_HOST: 'logserver'
       RSYSLOG_PORT: 514

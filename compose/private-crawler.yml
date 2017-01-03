@@ -10,8 +10,8 @@ services:
     build:
       context: ../services/private-crawler
       args:
-        PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
         PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
+        PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
         PYPI_SERVER_PORT: '${PYPI_SERVER_PORT}'
     environment:
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'

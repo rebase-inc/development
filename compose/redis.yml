@@ -4,5 +4,6 @@ services:
   redis:
     container_name: redis
     hostname: redis
-    image: redis
+    image: redis:alpine
     restart: always
+    entrypoint: redis-server --save ""

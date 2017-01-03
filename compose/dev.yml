@@ -2,33 +2,30 @@ version: '2'
 
 services:
   api:
-    volumes:
-      - ../services/api:/api
+    environment:
+      LOG_LEVEL: 'DEBUG'
+      CONFIG: '/usr/app/src/conf/gunicorn.dev.conf'
   private_crawler:
     environment:
-      LOG_LEVEL: 'INFO'
-    volumes:
-      - ../services/private-crawler/scanner:/pylibs/scanner
+      LOG_LEVEL: 'DEBUG'
   population_analyzer:
     environment:
       LOG_LEVEL: 'DEBUG'
-    volumes:
-      - ../services/population-analyzer/leaderboard:/pylibs/leaderboard
   python_parser:
     environment:
-      LOG_LEVEL: 'WARNING'
+      LOG_LEVEL: 'DEBUG'
     ports:
       - "25252:25252"
   python_2_parser:
     environment:
-      LOG_LEVEL: 'WARNING'
+      LOG_LEVEL: 'DEBUG'
     ports:
       - "25253:25253"
   javascript_parser:
-    environment:
-      LOG_LEVEL: 'WARNING'
     ports:
       - "7777:7777"
+    environment:
+      LOG_LEVEL: 'DEBUG'
   rq_dashboard:
     extends:
       file: rq-dashboard.yml
@@ -37,12 +34,12 @@ services:
       - "4444:4444"
   python_impact:
     environment:
-      LOG_LEVEL: 'WARNING'
+      LOG_LEVEL: 'DEBUG'
     ports:
       - "25000:25000"
   javascript_impact:
     environment:
-      LOG_LEVEL: 'WARNING'
+      LOG_LEVEL: 'DEBUG'
     ports:
       - "9999:9999"
   database:
