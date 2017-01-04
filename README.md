@@ -31,7 +31,8 @@ docker-compose -f compose/common.yml -f compose/dev.yml -f compose/mount.yml up 
 
 To use live reload (if we had really good tests, this probably wouldn't be necessary):
 ```bash
-docker-sync start -c sync/dev.yml # https://github.com/EugenMayer/docker-sync/wiki/1.-Installation
+# https://github.com/EugenMayer/docker-sync/wiki/1.-Installation
+docker-sync start -c sync/dev.yml # long running (I usually leave it running in a separate window)
 docker-compose -f compose/common.yml -f compose/dev.yml -f compose/sync.yml up --build -d
 ```
 
