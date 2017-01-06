@@ -42,6 +42,11 @@ services:
       - SYNC_pypi_server:/usr/app/site-packages
     environment:
       PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  javascript_parser:
+    volumes:
+      - SYNC_pypi_server:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
   python_impact:
     volumes:
       - SYNC_pypi_server:/usr/app/site-packages
