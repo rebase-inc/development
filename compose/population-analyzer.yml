@@ -15,8 +15,6 @@ services:
         PYPI_SERVER_PORT: '${PYPI_SERVER_PORT}'
     environment:
       S3_BUCKET: '${S3_KNOWLEDGE_BUCKET}'
-      S3_LEADERBOARD_PREFIX: 'leaderboard'
-      S3_USER_PREFIX: 'users'
       AWS_REGION: '${AWS_REGION}'
       AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'
       AWS_SECRET_ACCESS_KEY: '${AWS_SECRET_ACCESS_KEY}'
