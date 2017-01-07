@@ -39,7 +39,7 @@
 	url = git@github.com:rebase-inc/population-analyzer.git
 	branch = master
 [submodule "services/pypi-server"]
-	path = services/pypi-server
+	path = services/python-commons
 	url = git@github.com:rebase-inc/pypi-server.git
 	branch = master
 [submodule "services/python-impact"]
