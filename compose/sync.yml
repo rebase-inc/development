@@ -4,7 +4,7 @@ volumes:
     external: true
   SYNC_pypi_server:
     external: true
-  SYNC_private_crawler:
+  SYNC_github_scanner:
     external: true
   SYNC_population_analyzer:
     external: true
@@ -20,9 +20,15 @@ services:
       - SYNC_pypi_server:/usr/app/site-packages
     environment:
       PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
-  private_crawler:
+  private_github_scanner:
     volumes:
-      - SYNC_private_crawler:/usr/app/src
+      - SYNC_github_scanner:/usr/app/src
+      - SYNC_pypi_server:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  public_github_scanner:
+    volumes:
+      - SYNC_github_scanner:/usr/app/src
       - SYNC_pypi_server:/usr/app/site-packages
     environment:
       PYTHONPATH: '/usr/app/src:/usr/app/site-packages'

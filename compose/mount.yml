@@ -4,9 +4,12 @@ services:
   api:
     volumes:
       - ../services/api:/usr/app/src
-  private_crawler:
+  private_github_scanner:
     volumes:
-      - ../services/private-crawler:/usr/app/src
+      - ../services/github-scanner:/usr/app/src
+  public_github_scanner:
+    volumes:
+      - ../services/github-scanner:/usr/app/src
   population_analyzer:
     volumes:
       - ../services/population-analyzer:/usr/app/src

@@ -3,12 +3,12 @@ volumes:
     log: {}
 
 services:
-  private_crawler:
-    container_name: private_crawler
-    hostname: private_crawler
-    image: private_crawler
+  github_scanner:
+    container_name: github_scanner
+    hostname: github_scanner
+    image: github_scanner
     build:
-      context: ../services/private-crawler
+      context: ../services/github-scanner
       args:
         PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
         PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'

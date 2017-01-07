@@ -16,9 +16,9 @@ syncs:
     sync_host_ip: 'localhost' # ${DOCKERHOST} if using docker-machine
     sync_host_port: 10872
     sync_excludes: ['package.json', 'node_modules/', '.gitignore', '.git/', '*.pyc', '__pycache__']
-  SYNC_private_crawler:
+  SYNC_github_scanner:
     notify_terminal: false
-    src: '../services/private-crawler'
+    src: '../services/github-scanner'
     dest: '/usr/app/src'
     sync_host_ip: 'localhost' # ${DOCKERHOST} if using docker-machine
     sync_host_port: 10873
