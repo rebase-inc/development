@@ -50,3 +50,6 @@
 	path = services/javascript-impact
 	url = git@github.com:rebase-inc/javascript-impact.git
 	branch = master
+[submodule "services/workbench"]
+	path = services/workbench
+	url = git@github.com:rebase-inc/workbench.git

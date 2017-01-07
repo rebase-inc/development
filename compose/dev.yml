@@ -33,8 +33,10 @@ services:
     extends:
       file: rq-dashboard.yml
       service: rq_dashboard
-    ports:
-      - "4444:4444"
+  workbench:
+    extends:
+      file: workbench.yml
+      service: workbench
   python_impact:
     environment:
       LOG_LEVEL: 'DEBUG'

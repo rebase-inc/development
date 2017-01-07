@@ -7,3 +7,5 @@ services:
     build:
       context: ../services/rq-dashboard
     image: rq_dashboard
+    ports:
+      - "4444:4444"
