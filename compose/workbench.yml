@@ -6,6 +6,8 @@ services:
     hostname: workbench
     build:
       context: ../services/workbench
+    environment:
+      GITHUB_CRAWLER_ACCESS_TOKEN: '${GITHUB_CRAWLER_ACCESS_TOKEN}'
     expose:
       - "8888"
     ports:
