@@ -7,9 +7,9 @@ services:
     build:
       context: ../services/python-2-parser
       args:
-        PYPI_SERVER_SCHEME:
-        PYPI_SERVER_HOST:
-        PYPI_SERVER_PORT:
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     image: python_2_parser
     expose:
       - "25253"

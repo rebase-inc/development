@@ -21,7 +21,7 @@ For both installation types:
 git submodule init && git submodule update
 ./tools/make-env.bash
 . ~/.rebase.env # or wherver you told make-env.bash to put your file
-docker-compose -f compose/pypi-server.yml up --build -d
+docker-compose -f compose/python-commons.yml up --build -d
 ```
 
 To use mounted volumes (easier to understand, but slower development speed):

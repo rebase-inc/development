@@ -10,9 +10,9 @@ services:
     build:
       context: ../services/github-scanner
       args:
-        PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
-        PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
-        PYPI_SERVER_PORT: '${PYPI_SERVER_PORT}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     environment:
       BREADTH_IMPORTANCE: 4
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'

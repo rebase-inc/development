@@ -13,9 +13,9 @@ prompt() {
 }
 
 export LOCALHOST_ALIAS=$(ifconfig lo0 | awk '$1 == "inet" {print $2}' | tail -1)
-export PYPI_SERVER_HOST=${PYPI_SERVER_HOST:-$(prompt "PyPI server host ( for local PyPI server )" "$LOCALHOST_ALIAS")}
-export PYPI_SERVER_SCHEME=${PYPI_SERVER_SCHEME:-$(prompt "PyPI server scheme ( for local PyPI server)" "http://")}
-export PYPI_SERVER_PORT=${PYPI_SERVER_PORT:-$(prompt "PyPI server scheme ( for local PyPI server)" "8080")}
+export PYTHON_COMMONS_SCHEME=${PYTHON_COMMONS_SCHEME:-$(prompt "Python commons server scheme ( for local PyPI server)" "http://")}
+export PYTHON_COMMONS_HOST=${PYTHON_COMMONS_HOST:-$(prompt "Python commons host ( for local PyPI server )" "$LOCALHOST_ALIAS")}
+export PYTHON_COMMONS_PORT=${PYTHON_COMMONS_PORT:-$(prompt "Python commons scheme ( for local PyPI server)" "8080")}
 
 export GITHUB_APP_CLIENT_ID=${GITHUB_APP_CLIENT_ID:-$(prompt 'GitHub App Client ID ( choose from https://github.com/organizations/rebase-inc/settings/applications )')}
 export GITHUB_APP_CLIENT_SECRET=${GITHUB_APP_CLIENT_SECRET:-$(prompt 'GitHub App Client Secret ( choose from https://github.com/organizations/rebase-inc/settings/applications )')}
@@ -36,9 +36,9 @@ if [[ $make_file =~ ^([yY][eE][sS]|[yY])$ ]]
 then
   env_file_location=$(prompt "Location for file?" "~/.rebase.env")
   env_file_location="${env_file_location/#\~/$HOME}"
-  echo "export PYPI_SERVER_SCHEME=\"$PYPI_SERVER_SCHEME\"" > $env_file_location
-  echo "export PYPI_SERVER_HOST=\"$PYPI_SERVER_HOST\"" >> $env_file_location
-  echo "export PYPI_SERVER_PORT=\"$PYPI_SERVER_PORT\"" >> $env_file_location
+  echo "export PYTHON_COMMONS_SCHEME=\"$PYTHON_COMMONS_SCHEME\"" > $env_file_location
+  echo "export PYTHON_COMMONS_HOST=\"$PYTHON_COMMONS_HOST\"" >> $env_file_location
+  echo "export PYTHON_COMMONS_PORT=\"$PYTHON_COMMONS_PORT\"" >> $env_file_location
   echo "export GITHUB_APP_CLIENT_ID=\"$GITHUB_APP_CLIENT_ID\"" >> $env_file_location
   echo "export GITHUB_APP_CLIENT_SECRET=\"$GITHUB_APP_CLIENT_SECRET\"" >> $env_file_location
   echo "export GITHUB_CRAWLER_USERNAME=\"$GITHUB_CRAWLER_USERNAME\"" >> $env_file_location

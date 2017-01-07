@@ -9,9 +9,9 @@ services:
     build:
       context: ../services/api
       args:
-        PYPI_SERVER_HOST: '${PYPI_SERVER_HOST}'
-        PYPI_SERVER_SCHEME: '${PYPI_SERVER_SCHEME}'
-        PYPI_SERVER_PORT: '${PYPI_SERVER_PORT}'
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     expose:
       - "5000"
     environment:

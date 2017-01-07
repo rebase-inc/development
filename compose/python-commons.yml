@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  python_commons:
+    container_name: python_commons
+    build: ../services/python-commons
+    image: python_commons 
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
