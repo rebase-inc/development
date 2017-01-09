@@ -6,9 +6,9 @@
 	path = services/logserver
 	url = git@github.com:rebase-inc/logserver.git
 	branch = master
-[submodule "services/private-crawler"]
+[submodule "services/github-scanner"]
 	path = services/github-scanner
-	url = git@github.com:rebase-inc/private-crawler.git
+	url = git@github.com:rebase-inc/github-scanner.git
 	branch = master
 [submodule "services/proxy"]
 	path = services/proxy
