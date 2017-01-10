@@ -40,3 +40,8 @@ Finally, to initialize the database:
 ```bash
 ./tools/init-db.bash
 ```
+
+And, so you don't forget to push the submodules:
+```bash
+git config push.recurseSubmodules on-demand
+```
