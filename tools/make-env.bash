@@ -22,7 +22,6 @@ export GITHUB_APP_CLIENT_SECRET=${GITHUB_APP_CLIENT_SECRET:-$(prompt 'GitHub App
 
 export GITHUB_CRAWLER_USERNAME=${GITHUB_CRAWLER_USERNAME:-$(prompt 'GitHub Crawler Username ( create a new GitHub account for this )')}
 export GITHUB_CRAWLER_PASSWORD=${GITHUB_CRAWLER_PASSWORD:-$(prompt 'GitHub Crawler Password ( create a new GitHub account for this )')}
-export GITHUB_CRAWLER_ACCESS_TOKEN=${GITHUB_CRAWLER_ACCESS_TOKEN:-$(prompt 'GitHub Crawler Access Token ( create a new GitHub account for this )')}
 
 export S3_KNOWLEDGE_BUCKET=${S3_KNOWLEDGE_BUCKET:-$(prompt 'S3 Bucket ( for storing population skill data )')}
 export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-$(prompt 'AWS Access Key ID ( for storing population skill data )')}

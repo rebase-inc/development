@@ -32,6 +32,11 @@ services:
       - SYNC_python_commons:/usr/app/site-packages
     environment:
       PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
+  workbench:
+    volumes:
+      - SYNC_python_commons:/usr/app/site-packages
+    environment:
+      PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
   population_analyzer:
     volumes:
       - SYNC_population_analyzer:/usr/app/src

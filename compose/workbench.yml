@@ -6,8 +6,14 @@ services:
     hostname: workbench
     build:
       context: ../services/workbench
+      args:
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     environment:
-      GITHUB_CRAWLER_ACCESS_TOKEN: '${GITHUB_CRAWLER_ACCESS_TOKEN}'
+      GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
+      GITHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
+      LOG_LEVEL: 'INFO'
     expose:
       - "8888"
     ports:

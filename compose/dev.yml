@@ -5,6 +5,9 @@ services:
     environment:
       LOG_LEVEL: 'DEBUG'
       CONFIG: '/usr/app/src/conf/gunicorn.dev.conf'
+  workbench:
+    environment:
+      LOG_LEVEL: 'DEBUG'
   private_github_scanner:
     environment:
       LOG_LEVEL: 'DEBUG'
