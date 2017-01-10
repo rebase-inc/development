@@ -6,6 +6,7 @@ services:
   api:
     container_name: api
     hostname: api
+    image: api
     build:
       context: ../services/api
       args:

@@ -4,6 +4,7 @@ services:
   workbench:
     container_name: workbench
     hostname: workbench
+    image: workbench
     build:
       context: ../services/workbench
       args:
