@@ -5,6 +5,8 @@ services:
     environment:
       LOG_LEVEL: 'DEBUG'
       CONFIG: '/usr/app/src/conf/gunicorn.dev.conf'
+    ports:
+      - "5000:5000"
   workbench:
     environment:
       LOG_LEVEL: 'DEBUG'

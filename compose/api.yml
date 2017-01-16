@@ -25,4 +25,4 @@ services:
       RSYSLOG_HOST: 'logserver'
       RSYSLOG_PORT: 514
       DATABASE_HOST: 'database'
-      API_URL_PREFIX: '/api/v1/'
+      API_URL_PREFIX: '/api/v1'
