@@ -15,6 +15,10 @@ services:
         PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     expose:
       - "5000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
     environment:
       FLASK_SECRET_KEY: '${FLASK_SECRET_KEY}'
       FLASK_LOGIN_SESSION_PROTECTION: 'basic'
