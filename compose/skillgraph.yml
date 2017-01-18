@@ -3,11 +3,7 @@ version: '2'
 services:
   skillgraph:
     container_name: skillgraph
-    build:
-      context: ../services/skillgraph
-      args:
-        REACT_APP_GITHUB_APP_CLIENT_ID: "${GITHUB_APP_CLIENT_ID}"
-    image: skillviz
+    image: skillgraph
     expose:
       - "9000"
     environment:

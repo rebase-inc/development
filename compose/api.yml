@@ -1,18 +1,10 @@
 version: '2'
-volumes:
-    log: {}
 
 services:
   api:
     container_name: api
     hostname: api
     image: api
-    build:
-      context: ../services/api
-      args:
-        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
-        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
-        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     expose:
       - "5000"
     environment:

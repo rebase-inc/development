@@ -53,3 +53,7 @@ services:
   database:
     ports:
       - "5432:5432"
+  proxy:
+    ports:
+      - "3000:3000"
+

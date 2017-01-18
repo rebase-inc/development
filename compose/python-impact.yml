@@ -3,12 +3,6 @@ version: '2'
 services:
   python_impact:
     container_name: python_impact
-    build: 
-      context: ../services/python-impact
-      args:
-        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
-        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
-        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     image: python_impact
     expose:
       - "25000"

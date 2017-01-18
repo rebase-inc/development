@@ -1,0 +1,65 @@
+version: '2'
+
+services:
+  api:
+    environment:
+      LOG_LEVEL: 'INFO'
+      CONFIG: '/conf/gunicorn.pro.conf'
+    image: '${DOCKER_REGISTRY}/api'
+  workbench:
+    environment:
+      LOG_LEVEL: 'INFO'
+    image: '${DOCKER_REGISTRY}/workbench'
+  private_github_scanner:
+    environment:
+      LOG_LEVEL: 'INFO'
+    image: '${DOCKER_REGISTRY}/private_github_scanner'
+  public_github_scanner:
+    environment:
+      LOG_LEVEL: 'INFO'
+    image: '${DOCKER_REGISTRY}/public_github_scanner'
+  population_analyzer:
+    environment:
+      LOG_LEVEL: 'INFO'
+    image: '${DOCKER_REGISTRY}/population_analyzer'
+  skillgraph:
+    image: '${DOCKER_REGISTRY}/skillgraph'
+  python_parser:
+    environment:
+      LOG_LEVEL: 'INFO'
+    image: '${DOCKER_REGISTRY}/python_parser'
+  python_2_parser:
+    image: '${DOCKER_REGISTRY}/python_2_parser'
+    environment:
+      LOG_LEVEL: 'INFO'
+  javascript_parser:
+    image: '${DOCKER_REGISTRY}/javascript_parser'
+    environment:
+      LOG_LEVEL: 'INFO'
+  rq_dashboard:
+    image: '${DOCKER_REGISTRY}/rq_dashboard'
+    ports:
+      - "4444:4444"
+  workbench:
+    image: '${DOCKER_REGISTRY}/workbench'
+    environment:
+      GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
+      GITHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
+      LOG_LEVEL: 'INFO'
+    ports:
+      - "8888:8888"
+  python_impact:
+    image: '${DOCKER_REGISTRY}/python_impact'
+    environment:
+      LOG_LEVEL: 'INFO'
+  javascript_impact:
+    image: '${DOCKER_REGISTRY}/javascript_impact'
+    environment:
+      LOG_LEVEL: 'INFO'
+  logserver:
+    image: '${DOCKER_REGISTRY}/logserver'
+  proxy:
+    image: '${DOCKER_REGISTRY}/proxy'
+    ports:
+      - "80:80"
+      - "443:443"
