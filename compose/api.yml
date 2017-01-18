@@ -7,6 +7,10 @@ services:
     image: api
     expose:
       - "5000"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
     environment:
       FLASK_SECRET_KEY: '${FLASK_SECRET_KEY}'
       FLASK_LOGIN_SESSION_PROTECTION: 'basic'
@@ -17,4 +21,4 @@ services:
       RSYSLOG_HOST: 'logserver'
       RSYSLOG_PORT: 514
       DATABASE_HOST: 'database'
-      API_URL_PREFIX: '/api/v1/'
+      API_URL_PREFIX: '/api/v1'

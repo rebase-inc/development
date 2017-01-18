@@ -6,9 +6,9 @@ services:
     hostname: workbench
     image: workbench
     environment:
+      LOG_LEVEL: 'DEBUG'
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
       GITHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
-      LOG_LEVEL: 'INFO'
     expose:
       - "8888"
     ports:

@@ -8,6 +8,7 @@ services:
     hostname: population_analyzer
     image: population_analyzer
     environment:
+      KNOWLEDGE_WEIGHT_INVERSE: 8
       S3_BUCKET: '${S3_KNOWLEDGE_BUCKET}'
       AWS_REGION: '${AWS_REGION}'
       AWS_ACCESS_KEY_ID: '${AWS_ACCESS_KEY_ID}'

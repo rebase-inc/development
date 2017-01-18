@@ -7,10 +7,14 @@ services:
     container_name: github_scanner
     hostname: github_scanner
     image: github_scanner
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1k"
     environment:
-      BREADTH_IMPORTANCE: 4
+      KNOWLEDGE_WEIGHT_INVERSE: 8
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
-      GIHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
+      GITHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
       S3_BUCKET: '${S3_KNOWLEDGE_BUCKET}'
       TMPFS_DRIVE_MAX_WRITE: 262144000 # 250M
       TMPFS_DRIVE: '/repos'
