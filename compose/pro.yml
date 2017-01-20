@@ -60,6 +60,8 @@ services:
     image: '${DOCKER_REGISTRY}/logserver'
   proxy:
     image: '${DOCKER_REGISTRY}/proxy'
+    environment:
+      CONFIG: '/etc/nginx/conf.d/root_pro.nginx'
     ports:
       - "80:80"
       - "443:443"

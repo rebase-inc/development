@@ -132,3 +132,19 @@ docker cp proxy:/letsencrypt.tar.gz ~/.rebase/letsencrypt.tar.gz
 # from your laptop
 scp alpha:.rebase/letsencrypt.tar.gz ~/Documents/
 ```
+
+- Produce production proxy images with existing certificates
+We need to extract the backup into the proxy build context at ./etc/letsencrypt.
+That way, the Dockerfile can copy the previously generated certificates into a
+new production image.
+```bash
+cd ~/repo/development
+tar -xvf ~/Documents/Rebase/letsencrypt.tar.gz -C services/proxy
+# do a quick ls to make sure the archive was expanded in the right place:
+ls -la services/proxy/etc/letsencrypt/live
+
+# now, the next production build will produce an image with the full certificates
+cd compose
+docker-compose -f common.yml -f pro.yml -f build.yml build proxy
+```
+
