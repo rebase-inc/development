@@ -3,12 +3,6 @@ version: '2'
 services:
  javascript_impact:
     container_name: javascript_impact
-    build: 
-      context: ../services/javascript-impact
-      args:
-        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
-        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
-        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     image: javascript_impact
     expose:
       - "9999"

@@ -5,12 +5,6 @@ services:
     container_name: workbench
     hostname: workbench
     image: workbench
-    build:
-      context: ../services/workbench
-      args:
-        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
-        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
-        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     environment:
       LOG_LEVEL: 'DEBUG'
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'

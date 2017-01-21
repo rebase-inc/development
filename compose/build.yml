@@ -1,0 +1,90 @@
+version: '2'
+
+services:
+  api:
+    build:
+      context: ../services/api
+      args:
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  workbench:
+    build:
+      context: ../services/workbench
+      args:
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  private_github_scanner:
+    build:
+      context: ../services/github-scanner
+      args:
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  public_github_scanner:
+    build:
+      context: ../services/github-scanner
+      args:
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  population_analyzer:
+    build:
+      context: ../services/population-analyzer
+      args:
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  skillgraph:
+    build:
+      context: ../services/skillgraph
+      args:
+        REACT_APP_GITHUB_APP_CLIENT_ID: "${GITHUB_APP_CLIENT_ID}"
+  logserver:
+    build: 
+      context: ../services/logserver
+  proxy:
+    build: 
+      context: ../services/proxy
+  python_parser:
+    build:
+      context: ../services/python-parser
+      args:
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  python_2_parser:
+    build:
+      context: ../services/python-2-parser
+      args:
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  javascript_parser:
+    build:
+      context: ../services/javascript-parser
+  python_impact:
+    build: 
+      context: ../services/python-impact
+      args:
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  javascript_impact:
+    build: 
+      context: ../services/javascript-impact
+      args:
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
+  rq_dashboard:
+    build:
+      context: ../services/rq-dashboard
+  workbench:
+    build:
+      context: ../services/workbench
+      args:
+        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
+        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
+        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'

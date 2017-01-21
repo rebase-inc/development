@@ -7,12 +7,6 @@ services:
     container_name: population_analyzer
     hostname: population_analyzer
     image: population_analyzer
-    build:
-      context: ../services/population-analyzer
-      args:
-        PYTHON_COMMONS_HOST: '${PYTHON_COMMONS_HOST}'
-        PYTHON_COMMONS_SCHEME: '${PYTHON_COMMONS_SCHEME}'
-        PYTHON_COMMONS_PORT: '${PYTHON_COMMONS_PORT}'
     environment:
       KNOWLEDGE_WEIGHT_INVERSE: 8
       S3_BUCKET: '${S3_KNOWLEDGE_BUCKET}'
