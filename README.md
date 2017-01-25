@@ -121,6 +121,8 @@ ln -sf /etc/nginx/conf.d/root_pro.nginx /etc/nginx/nginx.conf
 nginx -s reload
 ```
 
+- (optional) [Test SSL security grade](https://www.ssllabs.com/ssltest/analyze.html?d=skills.rebaseapp.com&hideResults=on)
+
 - Backup the certs
 ```bash
 # from inside the proxy container

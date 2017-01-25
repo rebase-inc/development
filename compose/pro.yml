@@ -6,56 +6,60 @@ services:
       LOG_LEVEL: 'INFO'
       CONFIG: '/conf/gunicorn.pro.conf'
     image: '${DOCKER_REGISTRY}/api'
-  workbench:
-    environment:
-      LOG_LEVEL: 'INFO'
-    image: '${DOCKER_REGISTRY}/workbench'
+    read_only: true
+    tmpfs:
+     - /tmp:rw,noexec,size=5m
   private_github_scanner:
     environment:
       LOG_LEVEL: 'INFO'
     image: '${DOCKER_REGISTRY}/private_github_scanner'
+    read_only: true
   public_github_scanner:
     environment:
       LOG_LEVEL: 'INFO'
     image: '${DOCKER_REGISTRY}/public_github_scanner'
+    read_only: true
   population_analyzer:
     environment:
       LOG_LEVEL: 'INFO'
     image: '${DOCKER_REGISTRY}/population_analyzer'
+    read_only: true
   skillgraph:
     image: '${DOCKER_REGISTRY}/skillgraph'
   python_parser:
     environment:
       LOG_LEVEL: 'INFO'
     image: '${DOCKER_REGISTRY}/python_parser'
+    read_only: true
   python_2_parser:
     image: '${DOCKER_REGISTRY}/python_2_parser'
     environment:
       LOG_LEVEL: 'INFO'
+    read_only: true
   javascript_parser:
     image: '${DOCKER_REGISTRY}/javascript_parser'
     environment:
       LOG_LEVEL: 'INFO'
+    read_only: true
   rq_dashboard:
     image: '${DOCKER_REGISTRY}/rq_dashboard'
     ports:
       - "4444:4444"
+    read_only: true
   workbench:
     image: '${DOCKER_REGISTRY}/workbench'
     environment:
-      GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
-      GITHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
       LOG_LEVEL: 'INFO'
-    ports:
-      - "8888:8888"
   python_impact:
     image: '${DOCKER_REGISTRY}/python_impact'
     environment:
       LOG_LEVEL: 'INFO'
+    read_only: true
   javascript_impact:
     image: '${DOCKER_REGISTRY}/javascript_impact'
     environment:
       LOG_LEVEL: 'INFO'
+    read_only: true
   logserver:
     image: '${DOCKER_REGISTRY}/logserver'
   proxy:
@@ -65,3 +69,6 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    tmpfs:
+     - /nginx:rw,noexec,size=50m
+    read_only: true
