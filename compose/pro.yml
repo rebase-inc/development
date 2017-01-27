@@ -4,8 +4,9 @@ services:
   api:
     environment:
       LOG_LEVEL: 'INFO'
-      CONFIG: '/conf/gunicorn.pro.conf'
+      FLASK_LOGIN_SESSION_PROTECTION: 'strong'
     image: '${DOCKER_REGISTRY}/api'
+    command: ['/venv/web/bin/gunicorn', '-c', '/usr/app/src/conf/gunicorn.pro.conf', 'rebase.scripts.wsgi:app']
     read_only: true
     tmpfs:
      - /tmp:rw,noexec,size=5m
