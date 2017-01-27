@@ -12,7 +12,7 @@ services:
       options:
         max-size: "1k"
     environment:
-      KNOWLEDGE_WEIGHT_INVERSE: 8
+      REPETITION_PENALTY: 8
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
       GITHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
       S3_BUCKET: '${S3_KNOWLEDGE_BUCKET}'
