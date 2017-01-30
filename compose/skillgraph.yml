@@ -6,5 +6,3 @@ services:
     image: skillgraph
     expose:
       - "9000"
-    environment:
-      REACT_APP_GITHUB_APP_CLIENT_ID: "${GITHUB_APP_CLIENT_ID}"
