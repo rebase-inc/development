@@ -1,7 +1,4 @@
 version: '2'
-volumes:
-    log: {}
-    sql: {}
 
 # This file should only be extensions of per-service docker-compose files ( no parameters aside from depends_on )
 services:
