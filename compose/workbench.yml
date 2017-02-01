@@ -2,8 +2,6 @@ version: '2'
 
 services:
   workbench:
-    container_name: workbench
-    hostname: workbench
     image: workbench
     environment:
       LOG_LEVEL: 'DEBUG'

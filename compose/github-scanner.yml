@@ -2,8 +2,6 @@ version: '2'
 
 services:
   github_scanner:
-    container_name: github_scanner
-    hostname: github_scanner
     image: github_scanner
     logging:
       driver: "json-file"

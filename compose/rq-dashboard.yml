@@ -2,8 +2,6 @@ version: '2'
 
 services:
   rq_dashboard:
-    container_name: rq_dashboard
-    hostname: rq_dashboard
     image: rq_dashboard
     ports:
       - "4444:4444"

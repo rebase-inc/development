@@ -2,7 +2,6 @@ version: '2'
 
 services:
   proxy:
-    container_name: proxy
     image: proxy 
     expose:
       - "3000"

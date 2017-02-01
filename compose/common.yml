@@ -1,5 +1,8 @@
 version: '2'
 
+volumes:
+    sql: {}
+
 # This file should only be extensions of per-service docker-compose files ( no parameters aside from depends_on )
 services:
   api:
@@ -16,16 +19,12 @@ services:
     extends:
       file: github-scanner.yml
       service: github_scanner 
-    container_name: private_github_scanner
-    hostname: private_github_scanner
     depends_on:
       - redis
   public_github_scanner:
     extends:
       file: github-scanner.yml
       service: github_scanner 
-    container_name: public_github_scanner
-    hostname: public_github_scanner
     depends_on:
       - redis
   population_analyzer:
