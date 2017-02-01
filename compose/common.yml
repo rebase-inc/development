@@ -16,18 +16,24 @@ services:
       file: database.yml
       service: database
   private_github_scanner:
+    environment:
+      SERVICE: "private_github_scanner"
     extends:
       file: github-scanner.yml
       service: github_scanner 
     depends_on:
       - redis
   public_github_scanner:
+    environment:
+      SERVICE: "public_github_scanner"
     extends:
       file: github-scanner.yml
       service: github_scanner 
     depends_on:
       - redis
   population_analyzer:
+    environment:
+      SERVICE: "population_analyzer"
     extends:
       file: population-analyzer.yml
       service: population_analyzer
