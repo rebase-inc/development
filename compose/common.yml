@@ -75,3 +75,7 @@ services:
     extends:
       file: javascript-impact.yml
       service: javascript_impact
+  workbench:
+    extends:
+      file: workbench.yml
+      service: workbench
