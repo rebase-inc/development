@@ -2,8 +2,6 @@ version: '2'
 
 services:
   javascript_parser:
-    container_name: javascript_parser
-    hostname: javascript_parser
     image: javascript_parser
     expose:
       - "7777"

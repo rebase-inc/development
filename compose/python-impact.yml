@@ -2,7 +2,6 @@ version: '2'
 
 services:
   python_impact:
-    container_name: python_impact
     image: python_impact
     expose:
       - "25000"

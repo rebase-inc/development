@@ -2,14 +2,10 @@ version: '2'
 
 services:
   workbench:
-    container_name: workbench
-    hostname: workbench
     image: workbench
     environment:
       LOG_LEVEL: 'DEBUG'
       GITHUB_CRAWLER_USERNAME: '${GITHUB_CRAWLER_USERNAME}'
       GITHUB_CRAWLER_PASSWORD: '${GITHUB_CRAWLER_PASSWORD}'
-    expose:
-      - "8888"
     ports:
       - "8888:8888"

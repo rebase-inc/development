@@ -1,6 +1,6 @@
 version: '2'
+
 volumes:
-    log: {}
     sql: {}
 
 # This file should only be extensions of per-service docker-compose files ( no parameters aside from depends_on )
@@ -16,22 +16,24 @@ services:
       file: database.yml
       service: database
   private_github_scanner:
+    environment:
+      SERVICE: "private_github_scanner"
     extends:
       file: github-scanner.yml
       service: github_scanner 
-    container_name: private_github_scanner
-    hostname: private_github_scanner
     depends_on:
       - redis
   public_github_scanner:
+    environment:
+      SERVICE: "public_github_scanner"
     extends:
       file: github-scanner.yml
       service: github_scanner 
-    container_name: public_github_scanner
-    hostname: public_github_scanner
     depends_on:
       - redis
   population_analyzer:
+    environment:
+      SERVICE: "population_analyzer"
     extends:
       file: population-analyzer.yml
       service: population_analyzer
@@ -73,3 +75,7 @@ services:
     extends:
       file: javascript-impact.yml
       service: javascript_impact
+  workbench:
+    extends:
+      file: workbench.yml
+      service: workbench

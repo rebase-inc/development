@@ -39,8 +39,6 @@ services:
   skillgraph:
     build:
       context: ../services/skillgraph
-      args:
-        REACT_APP_GITHUB_APP_CLIENT_ID: "${GITHUB_APP_CLIENT_ID}"
   logserver:
     build: 
       context: ../services/logserver

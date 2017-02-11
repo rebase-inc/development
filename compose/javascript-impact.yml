@@ -2,7 +2,6 @@ version: '2'
 
 services:
  javascript_impact:
-    container_name: javascript_impact
     image: javascript_impact
     expose:
       - "9999"

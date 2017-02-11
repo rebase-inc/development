@@ -36,9 +36,9 @@ function _api_manage () {
 }
 
 function _api_shell () {
-    _api_manage shell
+    _api_manage shell $*
 }
 
 function _api_recreate () {
-    _api_manage data recreate
+    _api_manage data recreate $*
 }

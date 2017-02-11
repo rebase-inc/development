@@ -2,8 +2,6 @@ version: '2'
 
 services:
   python_2_parser:
-    container_name: python_2_parser
-    hostname: python_2_parser
     image: python_2_parser
     expose:
       - "25253"
