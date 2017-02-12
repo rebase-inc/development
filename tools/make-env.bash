@@ -31,6 +31,8 @@ export AWS_REGION=${AWS_REGION:-$(prompt 'AWS Region' 'us-east-1')}
 export FLASK_SECRET_KEY=${FLASK_SECRET_KEY:-$(prompt 'Flask Secret Key ( if not in production, this can be any string )' 'SOME_FAKE_KEY')}
 export DOCKER_REGISTRY=${DOCKER_REGISTRY:-$(prompt 'Docker registry (for push to production)' 'alpha.rebaseapp.com:5000')}
 
+export REPETITION_PENALTY=${REPETITION_PENALTY:-$(prompt 'Repetition Penalty for knowledge calculation (usually on [1,inf))' '8')}
+
 make_file=$(prompt "Make a sourceable environment variable with these values?" "yes")
 
 if [[ $make_file =~ ^([yY][eE][sS]|[yY])$ ]]
@@ -50,4 +52,5 @@ then
   echo "export AWS_SECRET_ACCESS_KEY=\"$AWS_SECRET_ACCESS_KEY\"" >> $env_file_location
   echo "export FLASK_SECRET_KEY=\"$FLASK_SECRET_KEY\"" >> $env_file_location
   echo "export DOCKER_REGISTRY=\"$DOCKER_REGISTRY\"" >> $env_file_location
+  echo "export REPETITION_PENALTY=\"$REPETITION_PENALTY\"" >> $env_file_location
 fi
