@@ -12,6 +12,8 @@ volumes:
     external: true
   SYNC_python_impact:
     external: true
+  SYNC_python_2_parser:
+    external: true
 
 services:
   api:
@@ -51,6 +53,7 @@ services:
   python_2_parser:
     volumes:
       - SYNC_python_commons:/usr/app/site-packages
+      - SYNC_python_2_parser:/usr/app/src
     environment:
       PYTHONPATH: '/usr/app/src:/usr/app/site-packages'
   javascript_parser:

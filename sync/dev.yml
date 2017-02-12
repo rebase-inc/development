@@ -44,3 +44,10 @@ syncs:
     sync_host_ip: 'localhost' # ${DOCKERHOST} if using docker-machine
     sync_host_port: 10876
     sync_excludes: ['package.json', 'node_modules/', '.gitignore', '.git/', '*.pyc', '__pycache__']
+  SYNC_python_2_parser:
+    notify_terminal: false
+    src: '../services/python-2-parser'
+    dest: '/usr/app/src'
+    sync_host_ip: 'localhost' # ${DOCKERHOST} if using docker-machine
+    sync_host_port: 10877
+    sync_excludes: ['Dockerfile', 'README.md', '.gitignore', '.git/', '*.pyc', '__pycache__']
