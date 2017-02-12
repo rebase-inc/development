@@ -15,6 +15,14 @@ function _build () {
     _c -f compose/build.yml build $*
 }
 
+function _force_rebuild_python_services () {
+    services_dirs=(api python-2-parser python-parser github-scanner population-analyzer python-impact workbench)
+    for service in ${services_dirs[@]}; do
+        echo >> services/$service/requirements.txt
+    done
+    _build api python_2_parser python_parser python_impact public_github_scanner private_github_scanner population_analyzer workbench
+}
+
 function _x () {
     _c exec $*
 }
