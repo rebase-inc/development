@@ -1,0 +1,56 @@
+version: "2"
+options:
+  compose-file-path: 'compose/common.yml'
+  compose-dev-file-path: 'compose/dev.yml'
+
+# #  if using docker-machine use ${DOCKERHOST} instead of 'localhost' 
+syncs:
+  SYNC_api:
+    notify_terminal: false
+    src: 'services/api'
+    dest: '/usr/app/src'
+    sync_host_ip: 'localhost'
+    sync_host_port: 10871
+    sync_excludes: ['.gitignore', '.git/', '*.pyc', '__pycache__']
+  SYNC_python_commons:
+    notify_terminal: false
+    src: 'services/python-commons/libs'
+    dest: '/usr/app/site-packages'
+    sync_host_ip: 'localhost'
+    sync_host_port: 10872
+    sync_excludes: ['.gitignore', '.git/', '*.pyc', '__pycache__']
+  SYNC_github_scanner:
+    notify_terminal: false
+    src: 'services/github-scanner'
+    dest: '/usr/app/src'
+    sync_host_ip: 'localhost'
+    sync_host_port: 10873
+    sync_excludes: ['.gitignore', '.git/', '*.pyc', '__pycache__']
+  SYNC_population_analyzer:
+    notify_terminal: false
+    src: 'services/population-analyzer'
+    dest: '/usr/app/src'
+    sync_host_ip: 'localhost'
+    sync_host_port: 10874
+    sync_excludes: ['.gitignore', '.git/', '*.pyc', '__pycache__']
+  SYNC_javascript_impact:
+    notify_terminal: false
+    src: 'services/javascript-impact'
+    dest: '/usr/app/src'
+    sync_host_ip: 'localhost'
+    sync_host_port: 10875
+    sync_excludes: ['.gitignore', '.git/', '*.pyc', '__pycache__']
+  SYNC_python_impact:
+    notify_terminal: false
+    src: 'services/python-impact'
+    dest: '/usr/app/src'
+    sync_host_ip: 'localhost'
+    sync_host_port: 10876
+    sync_excludes: ['.gitignore', '.git/', '*.pyc', '__pycache__']
+  SYNC_python_2_parser:
+    notify_terminal: false
+    src: 'services/python-2-parser'
+    dest: '/usr/app/src'
+    sync_host_ip: 'localhost'
+    sync_host_port: 10877
+    sync_excludes: ['Dockerfile', 'README.md', '.gitignore', '.git/', '*.pyc', '__pycache__']
