@@ -6,8 +6,6 @@ If you're running on a mac, you have two options for running docker: Docker for 
 Only If you're running on Docker for Mac (hacks because Docker for Mac isn't quite ready for action):
 ```bash
 unset ${!DOCKER_*} # only necessary if you've previously had docker-machine installed
-# See https://docs.docker.com/docker-for-mac/troubleshoot/#/known-issues for details on the following
-sudo ifconfig lo0 alias 10.200.10.1/24 # or replace ip with any unused ip - to be able to access host from containers
 printf "\n\nserver 127.127.1.1\nfudge  127.127.1.1 stratum 12\n" | sudo tee -a /etc/ntp-restrict.conf >/dev/null # to make sure time in container stays consistent
 sudo launchctl unload /System/Library/LaunchDaemons/org.ntp.ntpd.plist
 sudo launchctl load /System/Library/LaunchDaemons/org.ntp.ntpd.plist

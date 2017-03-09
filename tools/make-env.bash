@@ -12,9 +12,9 @@ prompt() {
   fi
 }
 
-export LOCALHOST_ALIAS=$(ifconfig lo0 | awk '$1 == "inet" {print $2}' | tail -1)
+export GATEWAY=$(docker network inspect compose_default | awk '$1 == "\"Gateway\":" {print $2}')
 export PYTHON_COMMONS_SCHEME=${PYTHON_COMMONS_SCHEME:-$(prompt "Python commons server scheme ( for local PyPI server)" "http://")}
-export PYTHON_COMMONS_HOST=${PYTHON_COMMONS_HOST:-$(prompt "Python commons host ( for local PyPI server )" "$LOCALHOST_ALIAS")}
+export PYTHON_COMMONS_HOST=${PYTHON_COMMONS_HOST:-$(prompt "Python commons host ( for local PyPI server )" "$GATEWAY")}
 export PYTHON_COMMONS_PORT=${PYTHON_COMMONS_PORT:-$(prompt "Python commons scheme ( for local PyPI server)" "8080")}
 
 export GITHUB_APP_CLIENT_ID=${GITHUB_APP_CLIENT_ID:-$(prompt 'GitHub App Client ID ( choose from https://github.com/organizations/rebase-inc/settings/applications )')}
