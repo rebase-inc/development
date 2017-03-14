@@ -2,23 +2,23 @@ from base64 import encodebytes
 from io import BytesIO
 from os import environ as env
 from os.path import expanduser
+from socket import gethostname
 from tarfile import open as open_tarfile
 
 
 def main():
-    compose_archive = None
+    compose_tar_gz_base64 = None
     with BytesIO() as buffer:
         with open_tarfile(fileobj=buffer, mode='w:gz') as tar_gz:
             tar_gz.add('compose')
-            tar_gz.add(expanduser('~/.rebase.pro.env'), arcname='.rebase.pro.env')
+            tar_gz.add(expanduser('~/.env'), arcname='.env')
         buffer.flush()
-        compose_archive = encodebytes(buffer.getvalue()).decode().replace('\n', '')
+        compose_tar_gz_base64 = encodebytes(buffer.getvalue()).decode().replace('\n', '')
 
     with open(env['HOME']+'/.ssh/id_rsa.pub') as public_key_file:
         build_machine_public_key = public_key_file.read()
 
-    cloud_config_template = f'''
-#cloud-config
+    cloud_config_template = f'''#cloud-config
 
 ssh_authorized_keys:
     - {build_machine_public_key}
@@ -26,7 +26,7 @@ ssh_authorized_keys:
 rancher:
   docker:
     insecure_registry:
-      - {env['DOCKER_REGISTRY']}
+    - {gethostname()}:5000
 
 write_files:
     -   path: /etc/rc.local
@@ -35,19 +35,23 @@ write_files:
         content: |
             #!/bin/bash
             wait-for-docker
+            if [ ! -e /usr/local/bin/docker-compose ]; then
+                curl -L https://github.com/docker/compose/releases/download/1.11.2/run.sh > /usr/local/bin/docker-compose
+                chmod +x /usr/local/bin/docker-compose
+            fi
             sudo -i -u rancher
             cd /home/rancher
-            rm -rf compose
-            echo "{compose_archive}" | base64 -d | tar -xz
-            declare -a containers=$(docker ps -q)
-            for container in ${{containers[@]}}
+            for container in $(docker ps -q)
             do
                 docker stop $container
                 docker rm $container
             done
-            . .rebase.pro.env
+            rm -rf compose
+            echo "{compose_tar_gz_base64}" | base64 -d | tar -xz
+            export DOCKER_RUN_OPTIONS="--env-file=.env"
             docker-compose -f compose/common.yml -f compose/pro.yml pull
             docker-compose -f compose/common.yml -f compose/pro.yml up -d
+            exit 0
 
     '''
     print(cloud_config_template)

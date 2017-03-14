@@ -21,7 +21,8 @@ For both installation types:
 ```bash
 git submodule init && git submodule update
 ./tools/make-env.bash
-. ~/.rebase.env # or wherver you told make-env.bash to put your file
+# if you kept the suggested .env filename, you don't need to source it, docker-compose will read it
+. ~/.rebase.env # optional, only if your env file is not named '.env' or wherever you told make-env.bash to put your file
 docker-compose -f compose/python-commons.yml up --build -d
 ```
 
@@ -57,6 +58,28 @@ Here's a summary of the differences:
 - The product hostname is different and linked to an official SSL certificate deliverd by Let's Encrypt.
 - The Nginx configuration is different
 - We use a private Docker Registry to deliver the images. Currently the registry is on the production host.
+
+### AWS EC2 Build Server
+Any Debian-derived image should work.
+. in its security group, enable port 5000 for any machine in the VPC (use CIDR mask)
+. clone rebase-inc/development
+. use tools/make-env.bash to generate a production environment
+. install and run the Docker registry (Community Edition): docker run -P 5000:5000 registry
+. run tools/build.sh to make the production images and push them to the registry
+. python3.6 -m tools.generate_cloud_config > /tmp/cloud-config.yml
+(generates a cloud-init configuration file, later to be used by Swarm master and workers images)
+
+### AWS EC2 Master Image
+. pick a RancherOS 0.8+ image (not the ECS optimized ones, they don't play with our cloud-init config).
+. in the user-data, copy the content of /tmp/cloud-config.yml or copy the file itself
+. pick a storage of 40GB roughly, so we have enough space for the github crawlers
+. in the security group, enable SSH for any machine in the VPC (use CIDR mask), enable HTTP/S for all
+. once the image is running, login from the build machine, as its public key is in cloud-init.
+. do a 'docker ps' and there should be most Rebase services running.
+. the first time 'api' runs, it will fail because the 'database' is not initialized yet
+. init the db: docker-compose -f compose/common.yml -f compose/pro.yml run api /venv/web/python -m rebase.scripts.manage data create
+. restart 'api': docker-compose -f compose/common.yml -f compose/pro.yml start api
+
 
 ### How to change the product URL
 
