@@ -55,6 +55,9 @@ services:
     extends:
       file: proxy.yml
       service: proxy
+    depends_on:
+      - api
+      - skillgraph
   python_parser:
     extends:
       file: python-parser.yml
